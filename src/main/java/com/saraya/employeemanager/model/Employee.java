@@ -15,7 +15,10 @@ import java.time.LocalDate;
 @Entity
 public class Employee {
     @Id
-    @Column(updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(unique = true ,updatable = false, nullable = false)
     private String empNo;
     private String fullName;
     private LocalDate hireDate;

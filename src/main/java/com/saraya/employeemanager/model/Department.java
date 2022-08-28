@@ -26,7 +26,7 @@ public class Department {
     private String name;
 
     @OneToMany(mappedBy = "department", orphanRemoval = true)
-    private Set<Employee> manager = new LinkedHashSet<>();
+    private Set<Employee> employees = new LinkedHashSet<>();
 
 
 }

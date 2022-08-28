@@ -8,6 +8,7 @@ import java.time.LocalDate;
 
 @Data
 public class EmployeeDto implements Serializable {
+    private Integer id;
     private String empNo;
     private String fullName;
     private String hireDate;

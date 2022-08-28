@@ -34,7 +34,7 @@ public class DepartmentMap implements MapToEntityAndDto<Department, DepartmentDt
         Department department = new Department();
         department.setName(dto.getName());
         department.setInitials(dto.getInitials());
-        department.setManager(dto.getManager());
+        department.setEmployees(dto.getManager());
         return department;
     }
 
@@ -43,7 +43,7 @@ public class DepartmentMap implements MapToEntityAndDto<Department, DepartmentDt
         DepartmentDto departmentDto = new DepartmentDto();
         departmentDto.setName(depart.getName());
         departmentDto.setInitials(depart.getInitials());
-        departmentDto.setManager(depart.getManager());
+        departmentDto.setManager(depart.getEmployees());
         return departmentDto;
     }
 }
