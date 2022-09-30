@@ -1,16 +1,17 @@
 package com.saraya.employeemanager.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -20,13 +21,15 @@ public class Department {
     private Integer id;
 
     @Column(unique = true)
-    private String initials;
-
-    @Column(unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "department", orphanRemoval = true)
-    private Set<Employee> employees = new LinkedHashSet<>();
+    @Column(unique = true)
+    private String initials;
+
+
+    @OneToMany(mappedBy = "department",
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = true)
+    private List<Employee> employees = new ArrayList<>();
 
 
 }
